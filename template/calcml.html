@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>ML CALC - Calculo de taxa de anúncio</title>
+  </head>
+  <body>
+    <div class="jumbotron" align="center">
+    <form>
+      <div class="form-group">
+        <label for="aquisicao">Valor de aquisição do produto:</label>
+        <input type="number" class="form-control" id="aquisicao" placeholder="R$0,00" step="0.1" onchange="calcular();" value="6">
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" class="form-control" id="quantidade" placeholder="0 un" onchange="calcular();" value="1">
+      </div>
+
+      <div class="form-group">
+        <label for="reputacao">Reputação:</label>
+        <select class="form-control" id="reputacao" onchange="calcular();">
+          <option>Verde</option>
+          <option>Amarelo</option>
+          <option>Vermelho/Sem Reputação</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="peso">Peso:</label>
+        <select class="form-control" id="peso" onchange="calcular();">
+          <option>Até 500g</option>
+          <option>500g à 1kg</option>
+          <option>1kg à 2kg</option>
+          <option>2kg à 5kg</option>
+          <option>5kg à 9kg</option>
+          <option>9kg à 13kg</option>
+          <option>13kg à 17kg</option>
+          <option>17kg à 23kg</option>
+          <option>23kg à 29kg</option>
+          <option>Maior que 29kg</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount">Lucro desejado:</label>
+        <input type="number" class="form-control" id="lucro" placeholder="R$0" step="0.1" onchange="calcular();">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="fretegratis" onchange="calcular();">
+        <label class="form-check-label" for="fretegratis">Frete Gratis</label>
+      </div>
+
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Anúncio Clássico</h5>
+        <p class="card-text" id="result1">R$0,00</p>
+        <a href="#" class="btn btn-primary" onclick="copiar('result1');">Copiar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Anúncio Premium</h5>
+        <p class="card-text" id="result2">R$0,00</p>
+        <a href="#" class="btn btn-primary" onclick="copiar('result2');">Copiar</a>
+      </div>
+    </div>
+  </div>
+</div>
+      <br>
+      <button type="submit" class="btn btn-primary" onchange="calcular();">Atualizar</button>
+    </form>
+    </div>
+  </body>
+  <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
